@@ -1,23 +1,13 @@
-import {test} from "@playwright/test";
-import {MainPage} from "../../pages/MainPage";
+import {test, expect} from "../../fixtures/fixtures";
 
-test('Check main page header elements', async ({page}) => {
-    const mainPage = new MainPage(page);
-    await mainPage.open();
-    await mainPage.closeSartModals();
+test('Check main page header elements', async ({mainPage}) => {
     await mainPage.headerHasCorrectAriaSnapshot();
 })
 
-test('Check main page tabs section with categories elements', async ({page}) => {
-    const mainPage = new MainPage(page);
-    await mainPage.open();
-    await mainPage.closeSartModals();
+test('Check main page tabs section with categories elements', async ({mainPage}) => {
     await mainPage.categoriesTabsHasCorrectAriaSnapshot();
 })
 
-test('Check main page left menu elements', async ({page}) => {
-    const mainPage = new MainPage(page);
-    await mainPage.open();
-    await mainPage.closeSartModals();
+test('Check main page left menu elements', async ({mainPage}) => {
     await mainPage.menuHasCorrectAriaSnapshot();
 })
