@@ -32,3 +32,14 @@ test('Check elements of registration modal window', async ({mainPage}) => {
     await mainPage.switchToRegistrationModal();
     await mainPage.registrationModalHasCorrectAriaSnapshot();
 });
+
+test('Check elements of opened left menu', async ({mainPage}) => {
+    await mainPage.openFullMenu();
+    await mainPage.openFullMenuHasCorrectAriaSnapshot();
+});
+
+test('Check theme changing', async ({mainPage}) => {
+    await mainPage.htmlDataPenThemeHasDarkValue('dark2021');
+    await mainPage.switchToWhiteTheme();
+    await mainPage.htmlDataPenThemeHasDarkValue('white2022');
+});

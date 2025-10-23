@@ -15,6 +15,10 @@ export class MainPage extends BasePage{
     private readonly authorizationModalPhoneFieldLocator: Locator;
     private readonly authorizationModalButonNextLocator: Locator;
     private readonly registrationModalAgreeCheckboxLocator: Locator;
+    private readonly menuButtonLocator: Locator;
+    private readonly openMenuAriaLocator: Locator;
+    private readonly changeThemeButtonLocator: Locator;
+    private readonly htmlLocator: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -31,6 +35,10 @@ export class MainPage extends BasePage{
         this.authorizationModalPhoneFieldLocator = this.page.locator('iframe[title="Multipass"]').contentFrame().getByRole('textbox', { name: 'Введите телефон' });
         this.authorizationModalButonNextLocator = this.page.locator('iframe[title="Multipass"]').contentFrame().getByRole('button', { name: 'Продолжить' });
         this.registrationModalAgreeCheckboxLocator = this.page.locator('iframe[title="Multipass"]').contentFrame().getByRole('group').locator('div').filter({ hasText: 'Я даю своё согласие на обработку персональных данных' });
+        this.menuButtonLocator = this.page.getByRole('button', { name: 'Открыть меню навигации' });
+        this.openMenuAriaLocator = this.page.locator('.menu-content-module__menuOpen');
+        this.changeThemeButtonLocator = this.page.getByRole('button', { name: 'Переключить на светлую тему' });
+        this.htmlLocator = this.page.locator('html');
     }
 
     async open() {
@@ -77,6 +85,16 @@ export class MainPage extends BasePage{
         //await this.page.waitForTimeout(1000);
     }
 
+    async switchToWhiteTheme() {
+        await this.changeThemeButtonLocator.click();
+        //await this.page.waitForTimeout(1000);
+    }
+
+    async openFullMenu() {
+        await this.menuButtonLocator.click();
+        await expect(this.openMenuAriaLocator).toBeVisible({timeout: 5000});
+    }
+
     async addPopupListHasCorrectAriaSnapshot() {
         await expect(this.headerAddButtonListPopupLocator).toMatchAriaSnapshot({name: 'addButtonListPopup.yml'});
     }
@@ -93,5 +111,14 @@ export class MainPage extends BasePage{
     async registrationModalHasCorrectAriaSnapshot() {
         await this.authorizationModalLocator.waitFor({state: 'visible', timeout: 10000});
         await expect(this.authorizationModalLocator).toMatchAriaSnapshot({name: 'registrationModal.yml'});
+    }
+
+    async openFullMenuHasCorrectAriaSnapshot() {
+        await this.openMenuAriaLocator.waitFor({state: 'visible', timeout: 10000});
+        await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({name: 'openFullMenu.yml'});
+    }
+
+    async htmlDataPenThemeHasDarkValue(theme: 'dark2021' | 'white2022') {
+        await expect(this.htmlLocator).toHaveAttribute('data-pen-theme', theme);
     }
 }

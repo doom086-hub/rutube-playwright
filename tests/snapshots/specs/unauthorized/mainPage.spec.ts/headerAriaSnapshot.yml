@@ -1,5 +1,5 @@
 - banner:
-  - button "Закрыть меню навигации":
+  - button "Открыть меню навигации":
     - img
   - button "RUTUBE":
     - img "RUTUBE"

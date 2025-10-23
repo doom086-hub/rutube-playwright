@@ -1,33 +1,33 @@
 - list:
   - listitem:
-    - link "Главная"
+    - link "Главная": Главная …
   - listitem:
-    - link "RUTUBE для блогеров":
+    - link "RUTUBE для блогеров …":
       - /url: /for_creators
   - listitem:
-    - link "Каталог":
+    - link "Каталог …":
       - /url: /categories/
   - listitem:
-    - link "В топе":
+    - link "В топе …":
       - /url: /feeds/top/
   - listitem:
-    - link "Shorts":
+    - link "Shorts …":
       - /url: /shorts/
   - listitem:
-    - link "ТВ онлайн":
+    - link "ТВ онлайн …":
       - /url: /feeds/live/
   - listitem:
-    - link "Трансляции":
+    - link "Трансляции …":
       - /url: /feeds/stream/
   - listitem:
-    - link "Моё":
+    - link "Моё …":
       - /url: /my/
   - listitem:
-    - link "Фильмы":
+    - link "Фильмы …":
       - /url: /feeds/movies/
   - listitem:
-    - link "Спорт":
+    - link "Спорт …":
       - /url: /feeds/sport/
   - listitem:
-    - link "RUTUBE x PREMIER":
+    - link "RUTUBE x PREMIER …":
       - /url: /feeds/premier/
