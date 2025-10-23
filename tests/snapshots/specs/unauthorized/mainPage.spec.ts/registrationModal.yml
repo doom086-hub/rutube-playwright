@@ -1,0 +1,25 @@
+- form "Регистрация":
+  - button "Назад":
+    - img
+  - button "Закрыть форму":
+    - img
+  - heading "Регистрация" [level=3]
+  - textbox "Введите телефон": /\+7 \d+ \d+ \d+ \d+/
+  - group:
+    - checkbox "Я даю своё согласие на обработку персональных данных" [checked]
+    - text: Я даю своё
+    - link "ознакомиться с согласие на обработку":
+      - /url: https://rutube.ru/info/personal/
+    - text: персональных данных
+    - checkbox "Я хочу получать информационные и рекламные уведомления от RUTUBE"
+    - text: Я хочу получать
+    - link "ознакомиться с информационные и рекламные уведомления":
+      - /url: https://rutube.ru/info/personal_sms/
+    - text: от RUTUBE
+  - button "Продолжить":
+    - paragraph: Продолжить
+  - region "Регистрируясь на RUTUBE, вы соглашаетесь с пользовательским соглашением и политикой конфиденциальности"
+  - contentinfo
+  - link "Yandex SmartCaptcha":
+    - /url: https://yandex.ru/legal/smartcaptcha_notice/
+  - text: "- Обработка данных"
