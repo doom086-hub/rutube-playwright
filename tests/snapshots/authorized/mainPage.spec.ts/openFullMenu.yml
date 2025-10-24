@@ -33,13 +33,10 @@
       - link "RUTUBE x PREMIER":
         - /url: /feeds/premier/
   - separator
-  - paragraph: Войдите, чтобы подписываться на каналы, комментировать видео и оставлять реакции
-  - button "Вход и регистрация"
   - button "Активировать промокод"
   - separator
   - region "Моё":
     - button "Моё":
-      - text: Моё
       - img
     - list "Моё":
       - listitem:
@@ -63,25 +60,51 @@
   - separator
   - region "По темам":
     - button "По темам":
-      - text: По темам
       - img
+  - separator
+  - text: Мои подписки
+  - list "Мои подписки":
+    - listitem:
+      - link "(RHS) Red Head Sound":
+        - /url: /channel/42951206/
+    - listitem:
+      - link "Клубный Сервис":
+        - /url: /channel/4954692/
+    - listitem:
+      - link "Передача Гранд Тур / The Grand Tour":
+        - /url: /channel/39652138/
+    - listitem:
+      - link "Давай на РУССКОМ":
+        - /url: /channel/24235245/
+    - listitem:
+      - link "Разговоры на кухне":
+        - /url: /channel/34989614/
+    - listitem
+    - listitem
+  - button "Ещё 2":
+    - img
   - separator
   - region "Cкачать приложения":
     - text: RUTUBE всегда с вами
     - list "RUTUBE всегда с вами":
       - listitem:
-        - link "Установить из Google Play"
+        - link "Установить из Google Play":
+          - /url: /https://redirect.appmetrica.yandex.com/serve/822089280250761172.*/
       - listitem:
         - link "Ярлык для iOS":
           - /url: https://rutube.ru/info/rutubeapp/
       - listitem:
-        - link "Установить из Huawei App Gallery"
+        - link "Установить из Huawei App Gallery":
+          - /url: /https://redirect.appmetrica.yandex.com/serve/389285442492612095.*/
       - listitem:
-        - link "Установить из RuStore"
+        - link "Установить из RuStore":
+          - /url: /https://redirect.appmetrica.yandex.com/serve/533400622968373086.*/
       - listitem:
-        - link "Установить из RuMarket"
+        - link "Установить из RuMarket":
+          - /url: /https://redirect.appmetrica.yandex.com/serve/389285425212041727.*/
       - listitem:
-        - link "Установить из Galaxy Store"
+        - link "Установить из Galaxy Store":
+          - /url: /https://redirect.appmetrica.yandex.com/serve/605458194927465783.*/
   - text: Больше от RUTUBE
   - list "Секция инструкции":
     - listitem:
@@ -147,4 +170,4 @@
       - listitem:
         - link "Фирменный стиль":
           - /url: /brand/
-    - paragraph: © 2025, RUTUBE
+    - paragraph: /© \d+, RUTUBE/

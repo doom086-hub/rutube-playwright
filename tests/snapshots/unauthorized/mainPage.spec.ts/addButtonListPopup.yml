@@ -1,6 +1,7 @@
 - list:
   - listitem:
-    - link:
+    - link "Загрузить видео":
+      - /url: https://studio.rutube.ru/uploader/
       - img
   - listitem:
     - link "Загрузить Shorts":

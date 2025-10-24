@@ -1,0 +1,8 @@
+- text: Уведомления
+- button:
+  - img
+- list:
+  - listitem:
+    - link
+  - listitem:
+    - link
