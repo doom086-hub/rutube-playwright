@@ -47,7 +47,7 @@ export default defineConfig({
                 ...devices['Desktop Chrome'],
                 storageState: 'tests/playwright/.auth/user.json',
             },
-            dependencies: ['auth'],
+            //dependencies: ['auth'],
         },
         {
             name: 'chromium unauthorized',

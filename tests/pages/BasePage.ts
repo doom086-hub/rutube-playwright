@@ -1,4 +1,4 @@
-import {Page, test, TestInfo} from "@playwright/test";
+import {expect, Locator, Page, test, TestInfo} from "@playwright/test";
 
 export class BasePage {
     readonly page: Page;
@@ -53,4 +53,9 @@ export class BasePage {
                 }
             }
         })}
+
+    protected async checkAriaSnapshot(locatorInLet: Locator, ariaName: string) {
+        await locatorInLet.waitFor({state: 'visible', timeout: 10000});
+        await expect(locatorInLet).toMatchAriaSnapshot({name: ariaName});
+    }
 }

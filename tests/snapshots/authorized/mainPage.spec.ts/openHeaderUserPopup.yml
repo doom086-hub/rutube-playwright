@@ -1,0 +1,20 @@
+- img "Иконка канала Kirillz"
+- paragraph:
+  - link "Kirillz":
+    - /url: /channel/35456189/
+  - link:
+    - /url: /profile/info/edit/
+    - img
+- paragraph: ki****@yandex.ru
+- list:
+  - listitem:
+    - link "Профиль":
+      - /url: /profile/
+  - listitem:
+    - link "Мой канал":
+      - /url: /channel/35456189/
+  - listitem:
+    - link "Студия RUTUBE":
+      - /url: https://studio.rutube.ru/
+- button "Выйти":
+  - img

@@ -19,6 +19,8 @@ export class MainPage extends BasePage{
     private readonly openMenuAriaLocator: Locator;
     private readonly changeThemeButtonLocator: Locator;
     private readonly htmlLocator: Locator;
+    private readonly userLogoLocator: Locator;
+    private readonly headerUserPopupLocator: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -39,29 +41,16 @@ export class MainPage extends BasePage{
         this.openMenuAriaLocator = this.page.locator('.menu-content-module__menuOpen');
         this.changeThemeButtonLocator = this.page.getByRole('button', { name: 'Переключить на светлую тему' });
         this.htmlLocator = this.page.locator('html');
+        this.userLogoLocator = this.page.getByRole('img', { name: 'Иконка канала Kirillz' });
+        this.headerUserPopupLocator = this.page.getByText('Kirillzki****@yandex.ruПрофильМой каналСтудия RUTUBEВыйти');
+
     }
+
+    //actions
 
     async open() {
         await test.step('Open main page', async () => {
             await this.page.goto("https://rutube.ru/");
-        })
-    }
-
-    async headerHasCorrectAriaSnapshot() {
-        await test.step('Check header has correct ARIA snapshot structure', async () => {
-            await expect(this.headerLocator).toMatchAriaSnapshot({name: 'headerAriaSnapshot.yml'})
-        })
-    }
-
-    async categoriesTabsHasCorrectAriaSnapshot() {
-        await test.step('Check tabs section with categories has correct ARIA snapshot structure', async () => {
-            await expect(this.categoriesTabsLocator).toMatchAriaSnapshot({name: 'categoriesTabsAriaSnapshot.yml'})
-        })
-    }
-
-    async menuHasCorrectAriaSnapshot() {
-        await test.step('Check left menu has correct ARIA snapshot structure', async () => {
-            await expect(this.menuLocator).toMatchAriaSnapshot({name: 'menuAriaSnapshot.yml'})
         })
     }
 
@@ -95,30 +84,68 @@ export class MainPage extends BasePage{
         await expect(this.openMenuAriaLocator).toBeVisible({timeout: 5000});
     }
 
+    async openHeaderUserPopup() {
+        await this.userLogoLocator.click();
+    }
+
+    //assertions
+
+    async headerHasCorrectAriaSnapshot() {
+        await test.step('Check header has correct ARIA snapshot structure', async () => {
+            await this.checkAriaSnapshot(this.headerLocator, 'headerAriaSnapshot.yml');
+            //await expect(this.headerLocator).toMatchAriaSnapshot({name: 'headerAriaSnapshot.yml'})
+        })
+    }
+
+    async categoriesTabsHasCorrectAriaSnapshot() {
+        await test.step('Check tabs section with categories has correct ARIA snapshot structure', async () => {
+            await this.checkAriaSnapshot(this.categoriesTabsLocator, 'categoriesTabsAriaSnapshot.yml');
+            //await expect(this.categoriesTabsLocator).toMatchAriaSnapshot({name: 'categoriesTabsAriaSnapshot.yml'})
+        })
+    }
+
+    async menuHasCorrectAriaSnapshot() {
+        await test.step('Check left menu has correct ARIA snapshot structure', async () => {
+            await this.checkAriaSnapshot(this.menuLocator, 'menuAriaSnapshot.yml');
+            //await expect(this.menuLocator).toMatchAriaSnapshot({name: 'menuAriaSnapshot.yml'})
+        })
+    }
+
     async addPopupListHasCorrectAriaSnapshot() {
-        await expect(this.headerAddButtonListPopupLocator).toMatchAriaSnapshot({name: 'addButtonListPopup.yml'});
+        await this.checkAriaSnapshot(this.headerAddButtonListPopupLocator, 'addButtonListPopup.yml');
+        //await expect(this.headerAddButtonListPopupLocator).toMatchAriaSnapshot({name: 'addButtonListPopup.yml'});
     }
 
     async notificationsPopupHasCorrectAriaSnapshot() {
-        await expect(this.headerNotificationPopupLocator).toMatchAriaSnapshot({name: 'notificationsPopup.yml'});
+        await this.checkAriaSnapshot(this.headerNotificationPopupLocator, 'notificationsPopup.yml');
+        //await expect(this.headerNotificationPopupLocator).toMatchAriaSnapshot({name: 'notificationsPopup.yml'});
     }
 
     async authorizationModalHasCorrectAriaSnapshot() {
-        await this.authorizationModalLocator.waitFor({state: 'visible', timeout: 10000});
-        await expect(this.authorizationModalLocator).toMatchAriaSnapshot({name: 'authorizationModal.yml'});
+        //await this.authorizationModalLocator.waitFor({state: 'visible', timeout: 10000});
+        await this.checkAriaSnapshot(this.authorizationModalLocator, 'authorizationModal.yml');
+        //await expect(this.authorizationModalLocator).toMatchAriaSnapshot({name: 'authorizationModal.yml'});
     }
 
     async registrationModalHasCorrectAriaSnapshot() {
-        await this.authorizationModalLocator.waitFor({state: 'visible', timeout: 10000});
-        await expect(this.authorizationModalLocator).toMatchAriaSnapshot({name: 'registrationModal.yml'});
+        //await this.authorizationModalLocator.waitFor({state: 'visible', timeout: 10000});
+        await this.checkAriaSnapshot(this.authorizationModalLocator, 'registrationModal.yml');
+        //await expect(this.authorizationModalLocator).toMatchAriaSnapshot({name: 'registrationModal.yml'});
     }
 
-    async openFullMenuHasCorrectAriaSnapshot() {
-        await this.openMenuAriaLocator.waitFor({state: 'visible', timeout: 10000});
-        await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({name: 'openFullMenu.yml'});
+    async openedFullMenuHasCorrectAriaSnapshot() {
+        //await this.openMenuAriaLocator.waitFor({state: 'visible', timeout: 10000});
+        //await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({name: 'openFullMenu.yml'});
+        await this.checkAriaSnapshot(this.openMenuAriaLocator, 'openFullMenu.yml');
     }
 
     async htmlDataPenThemeHasDarkValue(theme: 'dark2021' | 'white2022') {
         await expect(this.htmlLocator).toHaveAttribute('data-pen-theme', theme);
+    }
+
+    async openedHeaderUserPopupHasCorrectAriaSnapshot() {
+        //await this.headerUserPopupLocator.waitFor({state: 'visible', timeout: 10000});
+        //await expect(this.headerUserPopupLocator).toMatchAriaSnapshot({name: 'openHeaderUserPopup.yml'});
+        await this.checkAriaSnapshot(this.headerUserPopupLocator, 'openHeaderUserPopup.yml');
     }
 }
