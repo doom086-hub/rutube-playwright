@@ -58,4 +58,17 @@ export class BasePage {
         await locatorInLet.waitFor({state: 'visible', timeout: 10000});
         await expect(locatorInLet).toMatchAriaSnapshot({name: ariaName});
     }
+
+    protected async checkLayoutByScreenshot(locatorInLet: Locator, screenshotName: string) {
+        await expect(locatorInLet).toHaveScreenshot(screenshotName);
+    }
+
+    protected async hideElement(selectorInLet: string) {
+        await this.page.evaluate((selectorInLet) => {
+            const header = document.querySelector(selectorInLet);
+            if (header) {
+                (header as HTMLElement).style.display = 'none';
+            }
+        }, selectorInLet)
+    }
 }
