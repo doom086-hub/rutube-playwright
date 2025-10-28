@@ -42,7 +42,7 @@ test('test', async () => {
     await page.locator('iframe[title="Multipass"]').contentFrame().locator('#login-password').click();
     await page.locator('iframe[title="Multipass"]').contentFrame().locator('#login-password').fill(process.env.PASSWORD!);
     await page.locator('iframe[title="Multipass"]').contentFrame().getByRole('button', { name: 'Войти', exact: true }).click();
-    await page.getByRole('img', { name: 'Иконка канала Kirillz' }).click();
+    await page.getByRole('img', { name: 'Иконка канала channel71556493' }).click();
     await page.getByRole('link', { name: 'Профиль' }).click();
 
     await page.context().storageState({ path: authFile });

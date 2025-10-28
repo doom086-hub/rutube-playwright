@@ -1,11 +1,13 @@
 import { test as base } from '@playwright/test';
 import {MainPage} from "../pages/MainPage";
 import {CategoriesPage} from "../pages/CategoriesPage";
+import {SubscriptionsPage} from "../pages/SubscriptionsPage";
 
 // Declare the types of your fixtures.
 type MyFixtures = {
     mainPage: MainPage;
     categoriesPage: CategoriesPage;
+    subscriptionsPage: SubscriptionsPage;
 };
 
 // Extend base test by providing "mainPage".
@@ -28,5 +30,13 @@ export const test = base.extend<MyFixtures>({
         await categoriesPage.hideHeader();
 
         await use(categoriesPage);
-    }
+    },
+
+    subscriptionsPage: async ({page}, use, testInfo) => {
+        const subscriptionsPage = new SubscriptionsPage(page);
+        await subscriptionsPage.open();
+        await subscriptionsPage.closeStartModals(testInfo);
+
+        await use(subscriptionsPage);
+    },
 });
