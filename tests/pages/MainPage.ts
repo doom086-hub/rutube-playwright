@@ -41,8 +41,8 @@ export class MainPage extends BasePage{
         this.openMenuAriaLocator = this.page.locator('.menu-content-module__menuOpen');
         this.changeThemeButtonLocator = this.page.getByRole('button', { name: 'Переключить на светлую тему' });
         this.htmlLocator = this.page.locator('html');
-        this.userLogoLocator = this.page.getByRole('img', { name: 'Иконка канала Kirillz' });
-        this.headerUserPopupLocator = this.page.getByText('Kirillzki****@yandex.ruПрофильМой каналСтудия RUTUBEВыйти');
+        this.userLogoLocator = this.page.getByRole('img', { name: 'Иконка канала channel71556493' });
+        this.headerUserPopupLocator = this.page.getByText('channel71556493');
 
     }
 
