@@ -5,37 +5,37 @@ export class ForCreatorsPage extends BasePage{
 
     static readonly testParams = [
         {
-            url: 'https://rutube.ru/for_creators/#main',
+            url: '/for_creators/#main',
             screenshotName: 'mainTab.png',
             name: 'mainTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#steps',
+            url: '/for_creators/#steps',
             screenshotName: 'stepsTab.png',
             name: 'stepsTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#faq',
+            url: '/for_creators/#faq',
             screenshotName: 'faqTab.png',
             name: 'faqTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#monetization',
+            url: '/for_creators/#monetization',
             screenshotName: 'monetizationTab.png',
             name: 'monetizationTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#rules',
+            url: '/for_creators/#rules',
             screenshotName: 'rulesTab.png',
             name: 'rulesTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#team',
+            url: '/for_creators/#team',
             screenshotName: 'teamTab.png',
             name: 'teamTab',
         },
         {
-            url: 'https://rutube.ru/for_creators/#academy',
+            url: '/for_creators/#academy',
             screenshotName: 'academyTab.png',
             name: 'academyTab',
         },

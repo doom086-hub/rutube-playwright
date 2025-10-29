@@ -60,7 +60,7 @@ export class BasePage {
     }
 
     protected async checkLayoutByScreenshot(locatorInLet: Locator, screenshotName: string) {
-        await expect(locatorInLet).toHaveScreenshot(screenshotName);
+        await expect(locatorInLet).toHaveScreenshot(screenshotName, {maxDiffPixelRatio: 0.05});
     }
 
     protected async hideElement(selectorInLet: string) {

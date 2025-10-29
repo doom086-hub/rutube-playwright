@@ -50,7 +50,7 @@ export class MainPage extends BasePage{
 
     async open() {
         await test.step('Open main page', async () => {
-            await this.page.goto("https://rutube.ru/");
+            await this.page.goto("/");
         })
     }
 

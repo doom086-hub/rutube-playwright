@@ -15,7 +15,7 @@ export class CategoriesPage extends BasePage{
 
     async open() {
         await test.step('Open Categories page', async () => {
-            await this.page.goto("https://rutube.ru/categories/");
+            await this.page.goto("/categories/");
         })
     }
 
